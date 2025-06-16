@@ -1,50 +1,65 @@
-# AI-Human Collaboration: A Review of the Development Process
+# AI-Human Collaboration: Building a Next.js + TypeScript Portfolio
 
-_This document reflects my personal experience working on a React + TypeScript project with AI support. It is part of the `/review/` folder in the `ai-x-react-portfolio` repository._
+_This document outlines the development experience of creating a Next.js + TypeScript portfolio site in collaboration with AI. It is part of the `/review/` folder of the `ai-x-nextjs-portfolio` repository._
 
 ---
 
-## 1. Scope of Human Contribution
+## 1. Human Contribution
 
-While the project heavily relied on AI support, the human side was responsible for initiating structure, understanding API behavior, resolving TypeScript conflicts, and validating the final UI logic. At key stages—especially when the logic became abstract (e.g., `filterPosts`, category handling, and props typing)—I had to read through what the AI proposed and decide whether to approve, adapt, or reject it.
+While AI provided extensive support, I led the project direction by:
 
-My understanding of props usage, data flow, and component typing was still in development during the project. Despite that, I actively guided the AI with prompts and made all architectural and naming decisions.
+- Understanding the WordPress REST API response structure
+- Defining types (`Post`, `Category`) and correcting mismatches
+- Structuring `props` and component communication
+- Debugging logic and runtime errors
+- Making architectural and naming decisions
+
+Especially in logic-heavy parts like category-based filtering and `_embedded` image handling, I needed to read and interpret what the AI generated before implementing it.
 
 ---
 
 ## 2. Role of AI Assistance
 
-AI was primarily responsible for:
+AI was instrumental in:
 
-- Generating React + TypeScript components and pages
-- Suggesting fixes for type mismatches and runtime errors
-- Supporting debugging and error interpretation
-- Proposing file structure and naming conventions
-- Offering guidance on best practices and edge cases
+- Generating component/page templates in React with Next.js and TypeScript
+- Suggesting fixes for type and runtime errors
+- Providing examples for `.map()`, conditional rendering, and optional chaining
+- Structuring the file hierarchy and naming strategy
+- Offering guidance on best practices for static generation and API integration
 
-The assistant helped bridge my gaps—especially in areas like optional chaining, conditional rendering, and using `.map()` with typed props.
+The assistant helped bridge my gaps—especially around type safety, data flow, and rendering logic.
 
 ---
 
-## 3. Learning Points
+## 3. Key Learnings
 
-- **Type definitions are critical.** TypeScript fails fast when types are mismatched or loosely defined. I saw firsthand how a wrong type (`Posts` vs `Post`) can break downstream components.
-- **Naming consistency matters.** Filename case mismatches (e.g., `About.tsx` vs `about.tsx`) caused subtle yet impactful issues in the dev environment.
-- **Understanding the data structure is key.** The WordPress API's `_embedded` response format was initially confusing, especially for featured images. With guidance, I safely implemented fallback logic using optional chaining.
-- **AI-generated code still requires review.** Code that "looks right" can still be logically wrong. Human validation was essential—especially for dynamic filtering and conditional UI states.
+- **Type safety is critical.** A single mismatch (`Posts[]` vs `Post[]`) can cause failures in multiple components.
+- **Case sensitivity matters.** Files like `about.tsx` vs `About.tsx` can break builds depending on OS or config.
+- **API responses require careful handling.** The WordPress `_embedded` format demands safe access patterns.
+- **AI-generated code is not always final.** Even clean code suggestions must be logically validated and adapted.
 
 ---
 
 ## 4. Reflection
 
-This was my first structured attempt at building a React + TypeScript site powered by dynamic content (WordPress API). While I'm still solidifying my grasp of advanced patterns, I've become more confident in reading, questioning, and adapting AI-generated output.
+This project marks my first structured attempt at building a dynamic portfolio site using:
 
-This wasn’t just copy-paste—it was an iterative cycle of learning, verifying, and restructuring.
+- ✅ Next.js
+- ✅ TypeScript
+- ✅ WordPress REST API
+- ✅ Static generation with `getStaticProps`
 
-> AI accelerates development, but growth happens through deliberate understanding.
+Although I'm still solidifying my React and TypeScript understanding, I’m more confident in reading AI output, asking better questions, and iterating logically.
 
-In future iterations, I plan to handle responsive design, improve accessibility, and document component logic more clearly.
+> This wasn't a passive build—it was an active collaboration and a structured learning process.
+
+In future iterations, I plan to:
+
+- Implement responsive design for smartphones
+- Improve accessibility and semantic markup
+- Enhance component modularity and documentation
 
 ---
 
-_This review is part of the `ai-x-react-portfolio` GitHub repository._
+_This reflection is part of the `ai-x-nextjs-portfolio` GitHub repository._
